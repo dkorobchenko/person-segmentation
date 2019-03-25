@@ -48,6 +48,9 @@ global_step = tf.train.get_or_create_global_step()
 ckpt_prefix = os.path.join(LOG_DIR, 'ckpt')
 ckpt = tf.train.Checkpoint(optimizer=optimizer, model=net, gs=global_step)
 ckpt_manager = tf.train.CheckpointManager(ckpt, ckpt_prefix, max_to_keep=5)
+if ckpt_manager.latest_checkpoint is not None:
+    print('Restoring from checkpoint: {}'.format(ckpt_manager.latest_checkpoint))
+    ckpt.restore(ckpt_manager.latest_checkpoint)
 
 for (img, gt) in train_ds_iterator:
 
