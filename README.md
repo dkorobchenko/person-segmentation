@@ -12,6 +12,9 @@ The network architecture is made from scratch and is inspired be U-Net and DeepL
 2. `post-processing.ipynb`
     * Playground for segmentation post processing (applications)
     * Emulating DOF effect and background switch
+2. `kaggle_submission.ipynb`
+    * Run all test images through a model
+    * Generate a kaggle submission file (convers all segmentation maps to CSV using RLE)
 
 ## Python scripts
 
